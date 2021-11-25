@@ -9,7 +9,12 @@ max_area =0
 for c in contours:
     area = cv.contourArea(c)
     print(area)
-    
+    M = cv.moments(c)
+    # print(center_point)
+    cx = int(M['m10']/M['m00'])
+    cy = int(M['m01']/M['m00'])
+    cv.putText(img, f'{area} Area', (cx, cy), cv.FONT_HERSHEY_PLAIN, 1, (255,0,244), 2, cv.LINE_AA)
+    # cv.circle(img,(cx, cy), 2, 255, -1)
     if area >max_area:
         max_area = area
         big_contours= c
