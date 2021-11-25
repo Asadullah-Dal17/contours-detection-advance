@@ -1,6 +1,6 @@
 import cv2 as cv 
 import numpy as np
-img = cv.imread('./sample-image.png')
+img = cv.imread('./sample-image2.png')
 blur_image = cv.GaussianBlur(img, (3,3),0)
 edges_img = cv.Canny(blur_image, 100, 150)
 cv.imshow('edges', edges_img)
