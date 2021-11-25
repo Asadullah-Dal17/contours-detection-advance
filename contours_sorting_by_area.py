@@ -1,6 +1,6 @@
 import cv2 as cv 
 import numpy as np
-img = cv.imread('./sample-image.png')
+img = cv.imread('./sample-image3.png')
 blur_image = cv.GaussianBlur(img, (3,3),0)
 edges_img = cv.Canny(blur_image, 100, 150)
 cv.imshow('edges', edges_img)
@@ -18,10 +18,8 @@ for c in contours:
     # print(center_point)
     cx = int(M['m10']/M['m00'])
     cy = int(M['m01']/M['m00'])
-    cv.putText(img, f'{area} A, {len(approx)} APX', (cx, cy), cv.FONT_HERSHEY_PLAIN, 0.7, (0,255,244), 1, cv.LINE_AA)
+    cv.putText(img, f'{area} A, {len(approx)} APX', (cx-15, cy), cv.FONT_HERSHEY_PLAIN, 0.7, (0,255,244), 1, cv.LINE_AA)
     # # cv.circle(img,(cx, cy), 2, 255, -1)
-
-
     
 cv.drawContours(img, contours, -1, 255, 2)
 # cv.drawContours(img, big_contours,-1, (0,255,0), 7)
