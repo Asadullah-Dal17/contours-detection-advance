@@ -5,7 +5,7 @@ Detecting the contours, 😃  different possible ways, like sorting contours by 
 
 - [x] Get Biggest Contours
 
-- [ ] Sorting contours by Area
+- [x] Sorting contours by Area
 
 - [ ] Sorting contours by position in the image
 
