@@ -8,7 +8,7 @@ def findBiggestContour(img, contours):
         M = cv.moments(cnt)
         cx = int(M['m10']/M['m00'])
         cy = int(M['m01']/M['m00'])
-        cv.putText(img, f'{area} Area', (cx, cy), cv.FONT_HERSHEY_PLAIN, 1, (255,0,244), 2, cv.LINE_AA)
+        cv.putText(img, f'{area} Area', (cx-18, cy-5), cv.FONT_HERSHEY_SIMPLEX, 0.4, (255,255,0), 1)
     # finding biggest contour 
     c = max(contours, key = cv.contourArea)    
     area =cv.contourArea(c)
@@ -25,5 +25,6 @@ cv.drawContours(img, contours, -1, 255, 2)
 big_cont =findBiggestContour(img, contours)
 
 cv.imshow('img', img)
+cv.imwrite('/results/biggest_contours_out.png', img)
 cv.waitKey(0)
 cv.destroyAllWindows()
