@@ -1,5 +1,16 @@
 import cv2 as cv 
 import numpy as np
+def findBiggestContour(img, contours):
+    if len(contours):
+        c = max(contours, key = cv.contourArea)
+        print(c)
+        x,y,w,h = cv.boundingRect(c)
+        # draw the biggest contour (c) in green
+        cv.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
+        return c
+    else:
+        return None
+    
 img = cv.imread('./Images/sample-image2.png')
 blur_image = cv.GaussianBlur(img, (3,3),0)
 edges_img = cv.Canny(blur_image, 100, 150)
@@ -7,13 +18,10 @@ cv.imshow('edges', edges_img)
 contours, h = cv.findContours(edges_img, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
 max_area =0
 area_list =[]
-if len(contours):
-    c = max(contours, key = cv.contourArea)
-    print(c)
-    x,y,w,h = cv.boundingRect(c)
 
-    # draw the biggest contour (c) in green
-    cv.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
+big_cont =findBiggestContour(img, contours)
+print(big_cont)
+
 # for index, c in enumerate(contours):
 #     area = cv.contourArea(c)
 #     print(area)
