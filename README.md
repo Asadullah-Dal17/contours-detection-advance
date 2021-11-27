@@ -7,6 +7,7 @@ Detecting the contours, 😃  different possible ways, like sorting contours by 
 
 - [x] Sorting contours by Area
 
+- [x] detecting the shapes, based of vertices of it. 
+
 - [ ] Sorting contours by position in the image
 
-- [ ] detecting the shapes, based of vertices of it. 
