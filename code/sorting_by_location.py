@@ -9,11 +9,10 @@ denoised_img = cv.GaussianBlur(img, (3,3), 10)
 
 edges_img = cv.Canny(denoised_img, 100,200)
 dilate_img = cv.dilate(edges_img, (3,3), iterations=3)
-contours, h = cv.findContours(dilate_img, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
-sorted_box = sorted(contours, key=cv.boundingRect, reverse=False)
 cv.putText(img, f'Sorted color Green ', (40, 20 ), cv.FONT_HERSHEY_PLAIN, 0.9, (0,255,0), 1, cv.LINE_AA)
 cv.putText(img, f'Unsorted color Black ', (40, 35 ), cv.FONT_HERSHEY_PLAIN, 0.9, (0,0,0), 1, cv.LINE_AA)
-
+contours, h = cv.findContours(dilate_img, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
+sorted_box = sorted(contours, key=cv.boundingRect, reverse=False)
 
 for IDs, cnt  in enumerate(sorted_box):
     bbox = cv.boundingRect(cnt)
@@ -32,6 +31,7 @@ for IDs, cnt  in enumerate(sorted_box):
     # cv.rectangle(img, box, color=(0, 255, 0),thickness=2 )
     cv.imshow('img', img)
     cv.waitKey(0)
+
 for IDs, cnt  in enumerate(contours):
     bbox = cv.boundingRect(cnt)
     # print(type(bbox))
