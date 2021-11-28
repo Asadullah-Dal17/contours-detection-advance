@@ -16,7 +16,8 @@ def findBiggestContour(img, contours):
     cv.rectangle(img,(x,y),(x+w,y+h),(0,0,255),3)
     return c
 
-img = cv.imread('./Images/sample-image.png')
+img = cv.imread('../Images/sample-image3.png')
+
 blur_image = cv.GaussianBlur(img, (3,3),0)
 edges_img = cv.Canny(blur_image, 100, 150)
 cv.imshow('edges', edges_img)
