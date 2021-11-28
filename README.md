@@ -11,3 +11,4 @@ Detecting the contours, 😃  different possible ways, like sorting contours by 
 
 - [ ] Sorting contours by position in the image
 
+The more details and features, [opencv-documentation](https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contour_features/py_contour_features.html) of contours 
