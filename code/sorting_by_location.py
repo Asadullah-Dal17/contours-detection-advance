@@ -42,7 +42,7 @@ for IDs, cnt  in enumerate(contours):
     M = cv.moments(cnt)
     cx = int(M['m10']/M['m00'])
     cy = int(M['m01']/M['m00'])
-    cv.putText(img, f' --> {IDs}', (cx, cy ), cv.FONT_HERSHEY_PLAIN, 0.9, (0,0,0), 1, cv.LINE_AA)
+    cv.putText(img, f' --> {IDs}', (cx, cy ), cv.FONT_HERSHEY_PLAIN, 1, (0,0,0), 1, cv.LINE_AA)
     # cv.rectangle(img, box, color=(0, 255, 0),thickness=2 )
     cv.imshow('img', img)
     cv.waitKey(0)
