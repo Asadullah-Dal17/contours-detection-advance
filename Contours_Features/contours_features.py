@@ -22,6 +22,7 @@ for cnt  in contours:
     center, radius = cv.minEnclosingCircle(cnt)
     # pri))
     center = np.array(center).astype(int)
+    cv.circle(img, center, int(radius), (0,255, 0), 3)
     print(center)
     cv.drawContours(img, [box], 0, (0,255, 0), 2)
     # cv.rectangle(img, box, color=(0, 255, 0),thickness=2 )
