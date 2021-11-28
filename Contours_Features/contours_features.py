@@ -10,9 +10,7 @@ denoised_img = cv.GaussianBlur(img, (3,3), 10)
 edges_img = cv.Canny(denoised_img, 100,200)
 dilate_img = cv.dilate(edges_img, (3,3), iterations=3)
 contours, h = cv.findContours(dilate_img, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
-sorted_box = sorted(contours, key=cv.boundingRect, reverse=False)
-
-for cnt  in sorted_box:
+for cnt  in contours:
     bbox = cv.boundingRect(cnt)
     # print(type(bbox))
     cv.rectangle(img, bbox, color=(0,0, 0), thickness=3)
