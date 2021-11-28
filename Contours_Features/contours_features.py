@@ -25,6 +25,8 @@ for cnt  in contours:
     cv.circle(img, center, int(radius), (0,255, 0), 2)
     print(center)
     cv.drawContours(img, [box], 0, (0,255, 0), 2)
+    ellipse = cv.fitEllipse(cnt)
+    img = cv.ellipse(img,ellipse,(255,0,255),2)
     # cv.rectangle(img, box, color=(0, 255, 0),thickness=2 )
     cv.imshow('img', img)
     cv.waitKey(0)
