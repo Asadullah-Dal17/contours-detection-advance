@@ -17,8 +17,12 @@ for cnt  in contours:
     rect = cv.minAreaRect(cnt)
     # print(rect)
     box = cv.boxPoints(rect)
-    # print(box)
+    
     box = np.int0(box)
+    center, radius = cv.minEnclosingCircle(cnt)
+    # pri))
+    center = np.array(center).astype(int)
+    print(center)
     cv.drawContours(img, [box], 0, (0,255, 0), 2)
     # cv.rectangle(img, box, color=(0, 255, 0),thickness=2 )
     cv.imshow('img', img)
