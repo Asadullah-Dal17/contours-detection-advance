@@ -27,6 +27,12 @@ for cnt  in contours:
     cv.drawContours(img, [box], 0, (0,255, 0), 2)
     ellipse = cv.fitEllipse(cnt)
     img = cv.ellipse(img,ellipse,(255,0,255),2)
+    [vx,vy,x,y] = cv.fitLine(cnt, cv.DIST_L2,0,0.01,0.01)
+    print(vx, vy, x, y)
+    rows,cols = img.shape[:2]
+    lefty = int((-x*vy/vx) + y)
+    righty = int(((cols-x)*vy/vx)+y)
+    img = cv.line(img,(cols-1,righty),(0,lefty),(0,255,0),2)
     # cv.rectangle(img, box, color=(0, 255, 0),thickness=2 )
     cv.imshow('img', img)
     cv.waitKey(0)
